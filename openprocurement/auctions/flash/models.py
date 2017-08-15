@@ -582,6 +582,8 @@ class Auction(SchematicsDocument, Model):
             role = 'auction_{}'.format(request.method.lower())
         elif request.authenticated_role == 'contracting':
             role = 'contracting'
+        elif request.authenticated_role == 'bot':
+            role = 'bot'
         else:
             role = 'edit_{}'.format(request.context.status)
         return role
